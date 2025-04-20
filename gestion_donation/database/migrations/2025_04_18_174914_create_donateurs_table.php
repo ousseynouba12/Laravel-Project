@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('ddn'); // date de naissance
             $table->enum('sexe', ['Masculin', 'Feminin']);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

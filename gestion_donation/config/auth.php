@@ -38,7 +38,18 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'donateurs',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'donateurs',
+            'hash' => false,
         ],
     ],
 
@@ -60,9 +71,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'donateurs' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => App\Models\Donateur::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Administrateur::class,
         ],
 
         // 'users' => [
