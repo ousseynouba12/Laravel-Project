@@ -94,11 +94,11 @@
                 
                 <div class="footer-links">
                     <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
-                    <a href="connexionadmin.html" class="text-decoration-none">Espace administrateur</a>
+                   <a href="{{ route('admin.connexion') }}" class="text-decoration-none">Espace administrateur</a>
                 </div>
                 
                 <div class="mt-3 text-center">
-                    <p>Pas encore de compte ? <a href="incription.html" class="text-decoration-none">S'inscrire</a></p>
+                    <p>Pas encore de compte ? <a href="{{ route('donateur.inscription') }}" class="text-decoration-none">S'inscrire</a></p>
                 </div>
                 
                

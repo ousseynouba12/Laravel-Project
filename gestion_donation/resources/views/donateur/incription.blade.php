@@ -66,12 +66,6 @@
                 </div>
 
                 <div class="mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="accepterTermes" required>
-                        <label class="form-check-label" for="accepterTermes">
-                            J'accepte les conditions d'utilisation et la politique de confidentialité
-                        </label>
-                    </div>
                 </div>
 
                 <div class="d-grid gap-2">
@@ -79,7 +73,7 @@
                 </div>
 
                 <div class="mt-4 text-center">
-                    <p>Vous avez déjà un compte ? <a href="connexion.html">Connectez-vous ici</a></p>
+                    <p>Vous avez déjà un compte ? <a href="{{ route('donateur.connexion') }}">Connectez-vous ici</a></p>
                 </div>
             </form>
         </div>
@@ -101,7 +95,7 @@
             
             // Simuler l'envoi du formulaire avec succès
             alert('Inscription réussie ! Vous allez être redirigé vers la page de connexion.');
-            window.location.href = 'connexion.html';
+           window.location.href = '{{ route('donateur.connexion') }}';
         });
     </script>
 </body>
