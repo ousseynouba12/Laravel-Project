@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('dons', function (Blueprint $table) {
             $table->id();
-            $table->integer('montant');
-            $table->date('date');
-            $table->string('type');
-            $table->unsignedBigInteger('donateur_id');
-            $table->unsignedBigInteger('association_id');
-            $table->foreign('donateur_id')->references('id')->on('donateurs')->onDelete('cascade');
-            $table->foreign('association_id')->references('id')->on('associations')->onDelete('cascade');
+            $table->decimal('montant', 10, 2);
+            $table->timestamp('date');
+            $table->string('type'); // type de don (ex: ponctuel, mensuel)
+            $table->foreignId('donateur_id')->constrained()->onDelete('cascade');
+            $table->foreignId('association_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

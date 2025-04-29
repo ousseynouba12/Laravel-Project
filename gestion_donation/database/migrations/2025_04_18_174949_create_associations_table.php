@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('associations', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom');
-            $table->integer('montantTotal')->default(0);
-            $table->timestamps();
-        });
+       Schema::create('associations', function (Blueprint $table) {
+    $table->id();
+    $table->string('nom');
+    $table->decimal('montantTotal', 10, 2)->default(0);
+    $table->enum('statut', ['en_attente', 'validée', 'refusée'])->default('en_attente');
+    $table->text('description')->nullable();
+    $table->string('logo')->nullable();
+    $table->string('adresse')->nullable();
+    $table->string('telephone')->nullable();
+    $table->timestamps();
+});
     }
 
     /**
