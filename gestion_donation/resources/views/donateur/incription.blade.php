@@ -1,102 +1,60 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription Donateur</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="inscription-container">
-            <div class="header">
-                <img src="/api/placeholder/200/100" alt="Logo Organisation" class="img-fluid">
-                <h1>Inscription Donateur</h1>
-                <p class="text-muted">Rejoignez notre communauté de donateurs et contribuez à nos actions</p>
+@extends('layouts.Principale')
+
+@section('title')
+    Bienvenue
+@endsection
+
+@section('content')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<link rel="stylesheet" href="ressources/css/style.css">
+<section class="container  Inscription">
+    <div class="row p-5 ">
+      <div class="col-12">
+        <form>
+          <h1 class="mb-3">Inscription Donateur </h1>
+          <div class="mb-3">
+            <label for="validationCustom01" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="validationCustom01"  required>
+          </div>
+          <div class="mb-3">
+            <label for="validationCustom02" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="validationCustom02"  required>
+          </div>
+          <div class="mb-3">
+            <label for="validationDefaultUsername" class="form-label">Addresse Email</label>
+            <div class="input-group">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+              <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
             </div>
-
-            <form id="inscriptionForm">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="prenom" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom" required>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Adresse email</label>
-                    <input type="email" class="form-control" id="email" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="telephone" class="form-label">Numéro de téléphone</label>
-                    <input type="tel" class="form-control" id="telephone">
-                </div>
-
-                <div class="mb-3">
-                    <label for="adresse" class="form-label">Adresse</label>
-                    <input type="text" class="form-control" id="adresse">
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="codePostal" class="form-label">Code postal</label>
-                        <input type="text" class="form-control" id="codePostal">
-                    </div>
-                    <div class="col-md-8">
-                        <label for="ville" class="form-label">Ville</label>
-                        <input type="text" class="form-control" id="ville">
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="motDePasse" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="motDePasse" required>
-                    <div class="form-text">Votre mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre.</div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="confirmMotDePasse" class="form-label">Confirmer le mot de passe</label>
-                    <input type="password" class="form-control" id="confirmMotDePasse" required>
-                </div>
-
-                <div class="mb-4">
-                </div>
-
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">S'inscrire</button>
-                </div>
-
-                <div class="mt-4 text-center">
-                    <p>Vous avez déjà un compte ? <a href="{{ route('donateur.connexion') }}">Connectez-vous ici</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('inscriptionForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Validation du mot de passe
-            const password = document.getElementById('motDePasse').value;
-            const confirmPassword = document.getElementById('confirmMotDePasse').value;
-            
-            if (password !== confirmPassword) {
-                alert('Les mots de passe ne correspondent pas !');
-                return false;
-            }
-            
-            // Simuler l'envoi du formulaire avec succès
-            alert('Inscription réussie ! Vous allez être redirigé vers la page de connexion.');
-           window.location.href = '{{ route('donateur.connexion') }}';
-        });
-    </script>
-</body>
-</html>
+          </div>
+            <div class="mb-3">
+              <label for="exampleInputddn" class="form-label">Date de Naissance</label>
+              <input type="date" class="form-control" id="exampleInputddn">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputsexe" class="form-label">Sexe</label>
+              <select class="form-select" aria-label="Default select example"> 
+                <option selected>Non precisé</option>
+                <option value="1">Masculin</option>
+                <option value="2">Feminin</option>
+              </select>
+            </div>
+            </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mot de Passe</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirmer <br> Mot de Passe</label>
+            <input type="password" class="form-control" id="repeatInputPassword1">
+          </div>
+         
+          <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </form>
+       </div>
+    
+  </div>
+  </section> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+ @endsection
+ 
