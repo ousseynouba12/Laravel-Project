@@ -1,6 +1,6 @@
-@extends('layouts.Principale') 
 
-@section('content')
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/connect.css') }}">
 
@@ -13,24 +13,7 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form>
-                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                  <p class="lead fw-normal mb-0 me-3">S'inscrire Avec</p>
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
-                    <i class="fab fa-facebook-f"></i>
-                  </button>
-      
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
-                    <i class="fab fa-twitter"></i>
-                  </button>
-      
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
-                    <i class="fab fa-linkedin-in"></i>
-                  </button>
-                </div>
-      
-                <div class="divider d-flex align-items-center my-4">
-                  <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                </div>
+
       
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
@@ -88,5 +71,5 @@
         </div>
       </section>
      
-     @endsection
+     
  

@@ -75,81 +75,54 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="login-container">
-            <div class="header">
-                <img src="/api/placeholder/200/100" alt="Logo Organisation" class="img-fluid">
-                <h1>Connexion <span class="admin-badge">Administration</span></h1>
-                <p class="text-muted">Accès restreint au personnel autorisé</p>
+    <section class="vh-100">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 text-black">
+      
+              <div class="px-5 ms-xl-4">
+                <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+                <span class="h1 fw-bold mb-0">Administrateur</span>
+              </div>
+      
+              <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+      
+                <form style="width: 23rem;">
+      
+                  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connexion</h3>
+      
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form2Example18"> Addresse Email</label>
+                    <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                   
+                  </div>
+      
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form2Example28">Mot de Passe </label>
+                    <input type="password" id="form2Example28" class="form-control form-control-lg" />
+
+                  </div>
+      
+                  <div class="pt-1 mb-4">
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" type="button">Connecter</button>
+                  </div>
+      
+                 
+                 
+      
+                </form>
+      
+              </div>
+      
             </div>
-
-            <form id="adminLoginForm">
-                <div class="mb-4">
-                    <label for="adminUsername" class="form-label">Identifiant administrateur</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user-shield"></i></span>
-                        <input type="text" class="form-control" id="adminUsername" required>
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <label for="adminPassword" class="form-label">Mot de passe</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        <input type="password" class="form-control" id="adminPassword" required>
-                        <button class="btn btn-outline-secondary" type="button" id="toggleAdminPassword">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="mb-4 form-check">
-                    <input type="checkbox" class="form-check-input" id="adminRemember">
-                    <label class="form-check-label" for="adminRemember">Se souvenir de moi</label>
-                </div>
-                
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-success">Connexion administrateur</button>
-                </div>
-                
-                <div class="footer-links">
-                    <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
-                    <a href="connexiondonateur.html" class="text-decoration-none">Espace donateur</a>
-                </div>
-                
-                <div class="secure-note">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Connexion sécurisée - Accès réservé aux administrateurs</span>
-                </div>
-            </form>
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+              <img src="{{ asset('images/WAHABOU.jpeg') }}"
+                alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+            </div>
+          </div>
         </div>
-    </div>
-
+      </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Afficher/masquer le mot de passe
-        document.getElementById('toggleAdminPassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('adminPassword');
-            const icon = this.querySelector('i');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        });
-        
-        // Traitement du formulaire de connexion
-        document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Connexion administrateur réussie !');
-            // Redirection vers l'espace administrateur après connexion
-            // window.location.href = 'admin-dashboard.html';
-        });
-    </script>
+   
 </body>
 </html>
