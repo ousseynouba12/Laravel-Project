@@ -1,7 +1,12 @@
 
+<<<<<<< HEAD
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+=======
+@section('content')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+>>>>>>> ce0a013b2577b8274622d198418dd7718756a4a1
     <link rel="stylesheet" href="{{ asset('css/connect.css') }}">
 
     <section class="vh-100 h-auto">
@@ -12,64 +17,99 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+<<<<<<< HEAD
               <form>
 
+=======
+              <!-- Ajout de la gestion des erreurs -->
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
+
+              <!-- Modification du formulaire pour pointer vers la route de connexion -->
+              <form method="POST" action="{{ route('donateur.login') }}">
+                @csrf
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                  <p class="lead fw-normal mb-0 me-3">S'inscrire Avec</p>
+                  <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+      
+                  <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+      
+                  <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-linkedin-in"></i>
+                  </button>
+                </div>
+      
+                <div class="divider d-flex align-items-center my-4">
+                  <p class="text-center fw-bold mx-3 mb-0">Ou</p>
+                </div>
+>>>>>>> ce0a013b2577b8274622d198418dd7718756a4a1
       
                 <!-- Email input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Enter a valid email address" />
-                  <label class="form-label" for="form3Example3">Addresse Email </label>
+                <div class="form-outline mb-4">
+                  <input type="email" name="email" id="email" 
+                         class="form-control form-control-lg @error('email') is-invalid @enderror"
+                         value="{{ old('email') }}" 
+                         placeholder="Entrez votre adresse email" required />
+                  <label class="form-label" for="email">Adresse Email</label>
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
       
                 <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-3">
-                  <input type="password" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Enter password" />
-                  <label class="form-label" for="form3Example4">Mot de passe</label>
+                <div class="form-outline mb-3">
+                  <input type="password" name="password" id="password" 
+                         class="form-control form-control-lg @error('password') is-invalid @enderror"
+                         placeholder="Entrez votre mot de passe" required />
+                  <label class="form-label" for="password">Mot de passe</label>
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
       
                 <div class="d-flex justify-content-between align-items-center">
                   <!-- Checkbox -->
                   <div class="form-check mb-0">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                    <label class="form-check-label" for="form2Example3">
+                    <input class="form-check-input me-2" type="checkbox" name="remember" 
+                           id="remember" {{ old('remember') ? 'checked' : '' }} />
+                    <label class="form-check-label" for="remember">
                       Se souvenir de moi 
                     </label>
                   </div>
-                  <a href="#!" class="text-body">Mot de passe Oublié?</a>
-                </div>
+                 </div>
       
                 <div class="text-center text-lg-start mt-4 pt-2">
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+                  <button type="submit" class="btn btn-primary btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Connecter</button>
-                  <p class="small fw-bold mt-2 pt-1 mb-0">vou n'avez pas de compte? <a href="inscription-donateur"
-                      class="link-danger">S'inscrire</a></p>
+                  <p class="small fw-bold mt-2 pt-1 mb-0">
+                    Vous n'avez pas de compte? 
+                    <a href="{{ route('donateur.inscription') }}" class="link-danger">S'inscrire</a>
+                  </p>
                 </div>
-      
               </form>
             </div>
           </div>
         </div>
-       
-          <!-- Right -->
-          <div>
-            <a href="#!" class="text-white me-4">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#!" class="text-white me-4">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#!" class="text-white me-4">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#!" class="text-white">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-          <!-- Right -->
-        </div>
       </section>
+<<<<<<< HEAD
      
      
  
+=======
+@endsection
+>>>>>>> ce0a013b2577b8274622d198418dd7718756a4a1

@@ -15,10 +15,10 @@ class LoginController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showLoginForm()
-    {
-        return view('auth.login');
-    }
+   public function showLoginForm()
+{
+    return view('donateur.connexiondonateur');
+}
 
     /**
      * Traiter la demande de connexion pour donateur
