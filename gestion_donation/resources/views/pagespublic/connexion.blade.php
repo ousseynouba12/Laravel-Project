@@ -562,10 +562,9 @@
             DonEnsemble
         </a>
         <div class="nav-links">
-            <a href="#" class="nav-link">Accueil</a>
+            <a href="{{ route('accueil') }}" class="nav-link">Accueil</a>
             <a href="#" class="nav-link">Associations</a>
-            <a href="#" class="cta-button">Connexion</a>
-            <a href="#" class="cta-button">Inscription</a>
+            <a href="{{ route('donateur.inscription') }}" class="cta-button">Inscription</a>
         </div>
         <div class="menu-toggle">
             <span class="bar"></span>
@@ -586,13 +585,16 @@
             <h1 class="login-title">Connexion</h1>
             <p class="login-subtitle">Accédez à votre espace donateur</p>
             
-            <form class="login-form" id="loginForm" action="" method="POST">
+            <form class="login-form" id="loginForm" action="{{ route('donateur.login') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <div class="input-icon-wrapper">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email" value="{{ old('email') }}" required>
                         <i class="fas fa-envelope input-icon"></i>
                     </div>
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 
                 <div class="form-group">
@@ -603,6 +605,9 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 
                 <div class="form-options">
@@ -616,7 +621,7 @@
                 <button type="submit" class="login-button">Se connecter</button>
                 
                 <p class="register-link">
-                    Vous n'avez pas de compte ? <a href="/register">Inscrivez-vous</a>
+                    Vous n'avez pas de compte ? <a href="{{ route('donateur.inscription') }}">Inscrivez-vous</a>
                 </p>
             </form>
         </div>

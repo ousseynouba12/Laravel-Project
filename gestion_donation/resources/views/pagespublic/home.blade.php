@@ -1227,10 +1227,10 @@
         </a>
         </a>
         <div class="nav-links">
-            <a href="#" class="nav-link">Accueil</a>
+            <a href="{{ route('accueil') }}" class="nav-link">Accueil</a>
             <a href="#" class="nav-link">Associations</a>
-            <a href="#" class="cta-button">Connexion</a>
-            <a href="#" class="cta-button">Inscription</a>
+            <a href="{{ route('donateur.connexion') }}" class="cta-button">Connexion</a>
+            <a href="{{ route('donateur.inscription') }}" class="cta-button">Inscription</a>
         </div>
         <div class="menu-toggle">
             <span class="bar"></span>
@@ -1251,7 +1251,7 @@
             <h1 class="hero-title">Faites la différence <span>ensemble</span></h1>
             <p class="hero-description">DonEnsemble vous permet de soutenir des associations et des projets qui vous tiennent à cœur, tout en suivant l'évolution et l'impact de vos dons de manière transparente.</p>
             <div class="hero-buttons">
-                <a href="#" class="primary-btn">Faire un don</a>
+                <a href="{{ route('donateur.connexion') }}" class="primary-btn">Faire un don</a>
                 <a href="#" class="secondary-btn">Découvrir les associations</a>
             </div>
         </div>

@@ -587,21 +587,27 @@
             <h1 class="register-title">Créer un compte</h1>
             <p class="register-subtitle">Rejoignez notre communauté de donateurs</p>
             
-            <form class="register-form" id="registerForm" action="" method="POST">
+            <form class="register-form" id="registerForm" action="{{ route('donateur.register') }}" method="POST">
                 @csrf
                 <div class="form-row">
                     <div class="form-group">
                         <div class="input-icon-wrapper">
-                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" required>
+                            <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
                             <i class="fas fa-user input-icon"></i>
                         </div>
+                        @error('prenom')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     
                     <div class="form-group">
                         <div class="input-icon-wrapper">
-                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" required>
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
                             <i class="fas fa-user input-icon"></i>
                         </div>
+                        @error('nom')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 
@@ -609,6 +615,35 @@
                     <div class="input-icon-wrapper">
                         <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email" required>
                         <i class="fas fa-envelope input-icon"></i>
+                    </div>
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <input type="date" class="form-control" id="ddn" name="ddn" placeholder="Date de naissance" required>
+                            <i class="fas fa-calendar input-icon"></i>
+                        </div>
+                        @error('ddn')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <select class="form-control" id="sexe" name="sexe" required>
+                                <option value="" disabled selected>Sexe</option>
+                                <option value="Masculin">Masculin</option>
+                                <option value="Feminin">Féminin</option>
+                            </select>
+                            <i class="fas fa-venus-mars input-icon"></i>
+                        </div>
+                        @error('sexe')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 
@@ -620,6 +655,9 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 
                 <div class="form-group">
@@ -645,7 +683,7 @@
                 <button type="submit" class="register-button">S'inscrire</button>
                 
                 <p class="login-link">
-                    Vous avez déjà un compte ? <a href="/login">Connectez-vous</a>
+                    Vous avez déjà un compte ? <a href="{{ route('donateur.connexion') }}">Connectez-vous</a>
                 </p>
             </form>
         </div>
