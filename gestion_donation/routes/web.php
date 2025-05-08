@@ -6,8 +6,17 @@ use App\Http\Controllers\Auth\RegisterController;
 
 // Routes pour les pages principales
 Route::get('/', function () {
-    return view('welcome');
+    return view('/pagespublic/home');
 })->name('accueil');
+
+Route::get('/wreww', function () {
+    return view('/pagespublic/connexion');
+})->name('connexion');
+
+Route::get('/wow', function () {
+    return view('/pagespublic/inscription');
+})->name('inscription');
+
 
 // Routes pour l'authentification donateur
 Route::get('/connexion-donateur', [LoginController::class, 'showLoginForm'])
