@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - DonEnsemble</title>
+    <title>Inscription - DonEnsemble</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
@@ -106,11 +106,173 @@
             40% { transform: scale(1); }
         }
         
-       
-       
+        /* Navbar innovante */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1200px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
         
-        /* Section de connexion */
-        .login-section {
+        .navbar.scrolled {
+            top: 20px;
+            height: 60px;
+            width: 85%;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            z-index: -1;
+            transform: translate(-10%, -10%);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .logo:hover::before {
+            transform: scale(1.1) translate(-10%, -10%);
+            background-color: var(--tertiary);
+        }
+        
+        .logo i {
+            font-size: 22px;
+            margin-right: 10px;
+            background-color: var(--primary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .logo:hover i {
+            transform: rotateY(180deg);
+            background-color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(78, 147, 122, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(78, 147, 122, 0.3);
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            display: block;
+            border-radius: 3px;
+        }
+        
+        /* Section d'inscription */
+        .register-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -120,7 +282,7 @@
             overflow: hidden;
         }
         
-        .login-bg {
+        .register-bg {
             position: absolute;
             top: 0;
             left: 0;
@@ -167,9 +329,9 @@
             100% { transform: translate(30px, 30px) rotate(5deg); }
         }
         
-        /* Formulaire simplifié */
-        .login-container {
-            width: 450px;
+        /* Formulaire d'inscription */
+        .register-container {
+            width: 500px;
             max-width: 100%;
             background: white;
             border-radius: 20px;
@@ -179,7 +341,7 @@
             z-index: 1;
         }
         
-        .login-title {
+        .register-title {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 10px;
@@ -187,14 +349,14 @@
             text-align: center;
         }
         
-        .login-subtitle {
+        .register-subtitle {
             font-size: 16px;
             color: #666;
             margin-bottom: 30px;
             text-align: center;
         }
         
-        .login-form {
+        .register-form {
             display: flex;
             flex-direction: column;
         }
@@ -255,36 +417,30 @@
             color: var(--primary);
         }
         
-        .form-options {
+        .form-row {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: flex-start;
             margin-bottom: 25px;
             font-size: 14px;
+            line-height: 1.5;
         }
         
-        .remember-me {
-            display: flex;
-            align-items: center;
-        }
-        
-        .remember-me input {
-            margin-right: 8px;
+        .form-check input {
+            margin-right: 10px;
+            margin-top: 3px;
             accent-color: var(--primary);
         }
         
-        .forgot-password {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .forgot-password:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-        
-        .login-button {
+        .register-button {
             background: linear-gradient(45deg, var(--primary), var(--accent));
             color: white;
             border: none;
@@ -299,36 +455,87 @@
             box-shadow: 0 5px 15px rgba(78, 147, 122, 0.2);
         }
         
-        .login-button:hover {
+        .register-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(78, 147, 122, 0.3);
         }
         
-        .register-link {
+        .login-link {
             text-align: center;
             font-size: 14px;
             color: #666;
             margin-top: 15px;
         }
         
-        .register-link a {
+        .login-link a {
             color: var(--primary);
             font-weight: 600;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
-        .register-link a:hover {
+        .login-link a:hover {
             color: var(--accent);
             text-decoration: underline;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-           
+            .navbar {
+                width: 90%;
+                padding: 0 20px;
+            }
             
-            .login-container {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: center;
+                transition: all 0.5s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-link {
+                margin: 15px 0;
+                font-size: 18px;
+            }
+            
+            .cta-button {
+                margin-top: 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .register-container {
                 padding: 30px 20px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
         }
     </style>
@@ -347,27 +554,97 @@
         </div>
     </div>
     
-   
-    <!-- Section de connexion simplifiée -->
-    <section class="login-section">
-        <div class="login-bg">
+    <!-- Navbar innovante -->
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <i class="fas fa-heart"></i>
+            DonEnsemble
+        </a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Accueil</a>
+            <a href="#" class="nav-link">Associations</a>
+            <a href="#" class="nav-link">Comment ça marche</a>
+            <a href="#" class="nav-link">À propos</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="cta-button">Faire un don</a>
+        </div>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Section d'inscription simplifié -->
+    <section class="register-section">
+        <div class="register-bg">
             <div class="shape shape-1" data-speed="2"></div>
             <div class="shape shape-2" data-speed="-2"></div>
             <div class="shape shape-3" data-speed="3"></div>
         </div>
         
-        <div class="login-container" data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="login-title">Administrateur</h1>
-            <p class="login-subtitle">Accédez à votre espace Administrateur</p>
+        <div class="register-container" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="register-title">Créer un compte</h1>
+            <p class="register-subtitle">Rejoignez notre communauté de donateurs</p>
             
-            <form class="login-form" id="loginForm" action="" method="POST">
+            <form class="register-form" id="registerForm" action="{{ route('donateur.register') }}" method="POST">
                 @csrf
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
+                        @error('prenom')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
+                        @error('nom')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <div class="input-icon-wrapper">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email" value="{{ old('email') }}" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email" required>
                         <i class="fas fa-envelope input-icon"></i>
                     </div>
-                   
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <input type="date" class="form-control" id="ddn" name="ddn" placeholder="Date de naissance" required>
+                            <i class="fas fa-calendar input-icon"></i>
+                        </div>
+                        @error('ddn')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-icon-wrapper">
+                            <select class="form-control" id="sexe" name="sexe" required>
+                                <option value="" disabled selected>Sexe</option>
+                                <option value="Masculin">Masculin</option>
+                                <option value="Feminin">Féminin</option>
+                            </select>
+                            <i class="fas fa-venus-mars input-icon"></i>
+                        </div>
+                        @error('sexe')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -378,20 +655,36 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
-                    
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 
-                <div class="form-options">
-                    <div class="remember-me">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">Se souvenir de moi</label>
+                <div class="form-group">
+                    <div class="input-icon-wrapper">
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmer le mot de passe" required>
+                        <i class="fas fa-lock input-icon"></i>
+                        <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
-                    <a href="" class="forgot-password">Mot de passe oublié ?</a>
                 </div>
                 
-                <button type="submit" class="login-button">Se connecter</button>
+                <div class="form-check">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">J'accepte les <a href="#" style="color: var(--primary);">conditions générales</a> et la <a href="#" style="color: var(--primary);">politique de confidentialité</a></label>
+                </div>
                 
+                <div class="form-check">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Je souhaite recevoir la newsletter et être informé des nouveautés</label>
+                </div>
                 
+                <button type="submit" class="register-button">S'inscrire</button>
+                
+                <p class="login-link">
+                    Vous avez déjà un compte ? <a href="{{ route('donateur.connexion') }}">Connectez-vous</a>
+                </p>
             </form>
         </div>
     </section>
@@ -481,6 +774,17 @@
         togglePassword.addEventListener('click', function() {
             const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordField.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+        
+        // Toggle confirm password visibility
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+        const confirmPasswordField = document.getElementById('password_confirmation');
+        
+        toggleConfirmPassword.addEventListener('click', function() {
+            const type = confirmPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasswordField.setAttribute('type', type);
             this.querySelector('i').classList.toggle('fa-eye');
             this.querySelector('i').classList.toggle('fa-eye-slash');
         });

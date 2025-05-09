@@ -17,7 +17,7 @@ class LoginController extends Controller
      */
    public function showLoginForm()
 {
-    return view('donateur.connexiondonateur');
+    return view('pagespublic.connexion');
 }
 
     /**
