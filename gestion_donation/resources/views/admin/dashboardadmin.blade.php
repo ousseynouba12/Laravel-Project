@@ -443,6 +443,11 @@
             <i class="fa-solid fa-money-bill-trend-up"></i>
           <span>Transaction</span>
         </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-money-bill-trend-up"></i>
+          <span>Transaction</span>
+        </a>
+        
 
         <a href="#" class="nav-item   deconnecte">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
