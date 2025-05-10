@@ -42,6 +42,10 @@ Route::get('/connexion-admin', function() {
     return view('admin.connexionadmin');
 })->name('admin.connexion');
 
+Route::get('/dashboard-admin', function() {
+    return view('admin.dashboardadmin');
+})->name('admin.dashboard');
+
 // Routes pour le tableau de bord et le profil donateur
 Route::middleware(['auth'])->group(function () {
     Route::get('/donateur/dashboard', function() {
